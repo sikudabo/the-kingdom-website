@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Kingdom Sign Up</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <a href="/" class="navbar-brand font-weight-bold">
+                <i class="fas fa-crown"></i>
+                THE KINGDOM
+            </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navBar">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="navbar-collapse collapse" id="navBar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            HOME
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            ABOUT US
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="/our-story" class="dropdown-item">
+                                Our Story
+                            </a>
+                            <a href="/work-here" class="dropdown-item">
+                                Work Here!
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/menu" class="nav-link">
+                            MENU
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/gallery" class="nav-link">
+                            GALLERY
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            CONTACT
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="/contact" class="dropdown-item">
+                                Contact Us
+                            </a>
+                            <a href="/work-here" class="dropdown-item">
+                                Work Here!
+                            </a>
+                            <a href="/plan-party" class="dropdown-item">
+                                Plan Your Party
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/sign-in" class="nav-link">
+                            SIGN IN
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/sign-up" class="nav-link btn btn-danger btn-sm">
+                            SIGN UP!
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <div class="jumbotron text-center mt-5">
+            <h1 class="font-weight-bold">Sign Up</h1>
+            <p class="font-weight-bold">Sign Up For A Social Profile At The Kingdom</p>
+            <p class="font-weight-bold">You Can Chat With Others, Post Content, And Express Yourself</p>
+        </div>
+        <div class="row text-center">
+            <h2 class="font-weight-bold" style="margin:0 auto;">Sign Up Form</h2>
+            <div class="col-md-12">
+                <form id="signUpForm">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" id="firstName" placeholder="First Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" id="lastName" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="username">Username</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" id="username" name="username" placeholder="Username">
+                                </div>
+                                <small class="form-text text-muted">Username Must Be At Least 6 Characters</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="text" class="form-control" id="password" name="password" required>
+                                <small class="form-text text-muted">Password Must Be At Least 6 Characters</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="birthday">Birthday</label>
+                                <input type="text" class="form-control birthday" id="birthday" placeholder="mm/dd/yyyy">
+                                <small class="form-text text-muted">Must be in mm/dd/yyyy format. Example: 01/20/2020</small>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="gender">Gender</label>
+                                <select class="form-control" id="genderSelect">
+                                    <option name="gender" value="Male">Male</option>
+                                    <option name="gender" value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="email">
+                                    Email
+                                </label>
+                                <input type="email" class="form-control" id="email" placeholder="Email" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="phone">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" placeholder="765-111-1111">
+                                <small class="form-text text-muted">Number Must Be In 111-111-1111 Format</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="city">City</label>
+                                <input type="text" class="form-control" id="city" placeholder="City" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="state">State</label>
+                                <input type="text" class="form-control" id="state" placeholder="State" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="zip">Zip</label>
+                                <input type="text" class="form-control" id="zip" placeholder="Zip" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="bio">Bio</label>
+                                <textarea class="form-control" rows="3" name="bio" id="bio" placeholder="Enter A Description Of Yourself..." required></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group">
+                                <label for="avatar" class="custom-file-label">Avatar</label>
+                                <input type="file" class="custom-file-input" id="avatar" name="avatar">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <a href="#submitBtn" class="btn btn-block btn-danger submitBtn" id="#submitBtn">
+                        Create
+                    </a>
+                </form>
+            </div>
+        </div>
+        <div class="modal fade" tabindex="-1" id="uploadImageModal" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h2 class="modal-title">Upload & Crop Avatar</h2>
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-8 text-center">
+                                <div id="image-crop-area" style="width: 350px; margin-top: 30px;">
+                                </div>
+                            </div>
+                            <div class="col-md-4" style="margin-top: 30px">
+                                <br>
+                                <br>
+                                <br>
+                                <button style="cursor: pointer" class="btn btn-dark crop-image">
+                                    Crop & Upload Image
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.4/croppie.min.js"></script>
+    <script type="text/javascript" src="/javascript/sign-up.js"></script>
+</body>
+</html>

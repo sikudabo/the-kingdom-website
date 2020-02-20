@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="Author" content="Simeon Ikudabo">
+        <meta name="Title" content="The Kingdom User Settings Update Page">
+        <title>The Kingdom User Settings Update Page</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    </head>
+    <body data-id="<%= user.username %>" data-attri="<%= updateAttribute %>">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+            <a href="/private-profile-page" class="navbar-brand">
+                <img class="rounded-circle" src="<%= user.avatar %>" height="64" width="64">
+                <%= user.username %>
+            </a>
+        </nav>
+        <div class="container">
+            <div class="jumbotron text-center">
+                <h3 class="font-weight-bold">Welcome To The Update Page</h3>
+                <p class="font-weight-bold">Fill Out The Form Below To Update Your Profile</p>
+            </div>
+            <div class="row">
+                <div class="col-md-6 offset-3">
+                    <% if(updateAttribute === "firstName") { %>
+                        <form class="myForm" data-id="firstName" method="POST" action="/update-first-name">
+                            <div class="form-group">
+                                <label for="firstName">First Name</label>
+                                <input type="text" class="form-control" name="firstName" id="firstName" placeholder="First Name" required>
+                                <small class="form-text font-weight-bold text-danger">Update Your First Name</small>
+                            </div>
+                            <br>
+                            <button type="button" class="submit-btn btn btn-block btn-danger">
+                                Submit
+                            </button>
+                        </form>
+                   <% } else if(updateAttribute === "lastName") { %>
+                        <form class="myForm" data-id="lastName" method="POST" action="/update-last-name">
+                            <div class="form-group">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Last Name" required>
+                                <small class="form-text font-weight-bold text-danger">Update Your Last Name</small>
+                            </div>
+                            <br>
+                            <button type="button" class="submit-btn btn btn-danger btn-block">
+                                Submit
+                            </button>
+                        </form>
+                  <% } else if(updateAttribute === "username") { %>
+                        <form class="myForm" data-id="username" method="POST" action="/update-username">
+                            <div class="input-group">
+                                <label for="username">Username</label>
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text">@</span>
+                                    </div>
+                                    <input type="text" class="form-control" name="username" id="username" placeholder="Username" required>
+                                </div>
+                                <small class="form-text text-danger font-weight-bold">Update Your Username</small>
+                            </div>
+                            <br>
+                            <button type="button" class="btn btn-danger btn-block submit-btn">
+                                Submit
+                            </button>
+                        </form>
+                <%  } else if(updateAttribute === "password") { %>
+                        <form class="myForm" data-id="password" method="POST" action="/update-password">
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
+                                <small class="form-text font-weight-bold text-danger">Update Your Password</small>
+                            </div>
+                            <br>
+                            <button type="button" class="submit-btn btn btn-danger btn-block">
+                                Submit
+                            </button>
+                        </form>
+               <% } else if(updateAttribute === "birthday") { %>
+                    <form class="myForm" data-id="birthday" method="POST" action="/update-birthday">
+                        <div class="form-group">
+                            <label for="birthday">Birthday</label>
+                            <input type="text" class="form-control" name="birthday" id="birthday" placeholder="mm/dd/yyyy" required>
+                            <small class="font-weight-bold text-danger form-text">Update Your Birthday</small>
+                        </div>
+                        <br>
+                        <button type="button" class="submit-btn btn btn-danger btn-block">
+                            Submit
+                        </button>
+                    </form>
+              <% } else if(updateAttribute === "gender") { %>
+                    <form class="myForm" data-id="gender" method="POST" action="/update-gender">
+                        <div class="form-group">
+                            <label for="gender">Gender</label>
+                            <select id="gender" name="gender" class="form-control custom-select" required>
+                                <option value="male">Male</option>
+                                <option value="female">Female</option>
+                            </select>
+                            <small class="form-text font-weight-bold text-danger">Update Your Gender</small>
+                        </div>
+                        <br>
+                        <button type="button" class="submit-btn btn btn-danger btn-block">
+                            Submit
+                        </button>
+                    </form>
+             <% } else if(updateAttribute === "email") { %>
+                    <form class="myForm" data-id="email" method="POST" action="/update-email">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="xyz@gmail.com" required>
+                            <small class="form-text font-weight-bold text-danger">Update Your Email</small>
+                        </div>
+                        <br>
+                        <button type="button" class="submit-btn btn btn-danger btn-block">
+                            Submit
+                        </button>
+                    </form>
+            <% } else if(updateAttribute === "phone") { %>
+                    <form class="myForm" data-id="phone" method="POST" action="/update-phone">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="tel" class="form-control" name="phone" id="phone" placeholder="111-111-1111" required>
+                            <small class="form-text font-weight-bold text-danger">Update Your Phone Number</small>
+                        </div>
+                        <br>
+                        <button type="button" class="submit-btn btn btn-danger btn-block">
+                            Submit
+                        </button>
+                    </form>
+           <% } else if(updateAttribute === "city") { %>
+                    <form class="myForm" data-id="city" method="POST" action="/update-city">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" class="form-control" name="city" id="city" placeholder="City" required>
+                            <small class="form-text text-danger font-weight-bold">Update Your City</small>
+                        </div>
+                        <br>
+                        <button type="button" class="submit-btn btn btn-danger btn-block">
+                            Submit
+                        </button>
+                    </form>
+          <% } else if(updateAttribute === "state") { %>
+                <form class="myForm" data-id="state" method="POST" action="/update-state">
+                    <div class="form-group">
+                        <label for="state">State</label>
+                        <input type="text" class="form-control" name="state" id="state" placeholder="State" required>
+                        <span class="form-text text-danger font-weight-bold">Update Your State</span>
+                    </div>
+                    <br>
+                    <button type="button" class="submit-btn btn btn-danger btn-block">
+                        Submit
+                    </button>
+                </form>
+         <% } else if(updateAttribute === "zip") { %>
+                <form class="myForm" data-id="zip" method="POST" action="/update-zip">
+                    <div class="form-group">
+                        <label for="zip">Zip</label>
+                        <input type="text" class="form-control" name="zip" id="zip" placeholder="Zip" required>
+                        <small class="form-text text-danger font-weight-bold">Update Your Zip Code</small>
+                    </div>
+                    <br>
+                    <button type="button" class="submit-btn btn btn-danger btn-block">
+                        Submit
+                    </button>
+                </form>
+        <% } else if(updateAttribute === "bio") { %>
+                <form class="myForm" data-id="bio" method="POST" action="/update-bio">
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea class="form-control" name="bio" id="bio" placeholder="Bio" rows="3" required></textarea>
+                        <small class="form-text text-danger font-weight-bold">Update Your Bio</small>
+                    </div>
+                    <br>
+                    <button type="button" class="submit-btn btn btn-danger btn-block">
+                        Submit
+                    </button>
+                </form>
+       <% } else if(updateAttribute === "avatar") { %>
+            <form class="myForm" id="avatarForm" data-id="avatar" method="POST" action="/update-avatar" enctype="multipart/form-data">
+                <div class="custom-file">
+                    <input type="file" class="custom-file-input" accept="image/jpeg, image/jpg, image/png" name="avatar" id="avatar" required>
+                    <label class="custom-file-label">Avatar</label>
+                </div>
+                <input type="hidden" value="randomstuff" name="av">
+                <small class="form-text font-weight-bold text-danger">Update Your Avatar</small>
+                <br>
+                <button type="button" class="submit-btn btn btn-danger btn-block">
+                    Submit
+                </button>
+            </form>
+      <% } %>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+        <script type="text/javascript" src="/javascript/user-settings-update.js"></script>
+    </body>
+</html>

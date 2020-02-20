@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Kingdom Private Profile</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">-->
+    <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
+</head>
+
+<body data-username="<%= user.username %>">
+    <nav class="nav navbar navbar-expand-sm bg-dark navbar-dark">
+        <a href="/" class="navbar-brand font-weight-bold">
+            <img src="<%= user.avatar %>" class="rounded-circle" height="64" width="64" alt="profile pic">
+            <%= user.username %>
+        </a>
+        <li class="nav-item">
+            <a href="/chat-room" class="nav-link font-weight-bold text-white">
+                Chat
+            </a>
+        </li>
+        <li class="nav-item">
+            <a href="/user-settings" class="nav-link font-weight-bold text-white">
+                <i class="fas fa-cog"></i>
+                Settings
+            </a>
+        </li>
+        <li class="nav-item">
+            <form class="form-inline">
+                <div class="input-group">
+                    <input type="search" class="form-control" placeholder="Search..." id="searchInput">
+                    <div class="input-group-append">
+                        <button type="button" id="user-search-btn" class="btn btn-muted">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </li>
+    </nav>
+    <div class="container-fluid mt-4">
+        <div class="row">
+            <div class="col-lg-3" id="bio-row">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header"><%= user.firstName %> <%= user.lastName %></h4>
+                    <div class="card-body">
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item">
+                                <h3 class="bio-header font-weight-bold">Bio</h3>
+                                <p class="card-text font-weight-bold"> <%= user.bio %>
+                                </p>
+                            </li>
+                            <li class="list-group-item">
+                                <h3 class="city-header">City</h3>
+                                <p class="card-text font-weight-bold"><%= user.city %></p>
+                            </li>
+                            <li class="list-group-item">
+                                <h3 class="birthday-header font-weight-bold">Birthday</h3>
+                                <p class="font-weight-bold birth-day-text"><%= user.birthday %></p>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item">
+                        <a href="#text-post-tab" class="nav-link text-dark" data-toggle="tab">
+                            Post
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#photo-post" class="nav-link text-dark" data-toggle="tab">
+                            Photo Upload
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#video-post" class="nav-link text-dark" data-toggle="tab">
+                            Video Upload
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="uploadTab">
+                    <form class="tab-pane fade show active" id="text-post-tab">
+                        <textarea class="form-control" id="text-post" rows="4"
+                            placeholder="What's On Your Mind..."></textarea>
+                        <br>
+                        <button type="button" class="btn btn-dark" id="text-post-btn">
+                            Post
+                        </button>
+                    </form>
+                    <form class="tab-pane fade" id="photo-post" method="POST" action="/handle-photo-post"
+                        enctype="multipart/form-data">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="photo-post-pic" name="postPhoto" accept="image/jpeg, image/jpg, image/png, imgae/gif" required>
+                            <label class="custom-file-label">Photo</label>
+                        </div>
+                        <textarea class="form-control" rows="4" name="photoCaption" id="photo-post-caption"
+                            placeholder="Caption..." required></textarea>
+                        <br>
+                        <button type="button" class="btn btn-dark" id="photo-upload-btn">Upload</button>
+                    </form>
+                    <form class="tab-pane fade" id="video-post" method="POST" action="/handle-video-post"
+                        enctype="multipart/form-data">
+                        <div class="custom-file">
+                            <input type="file" class="custom-file-input" id="video-post-video" name="videoPostVideo"
+                                accept="video/mp4, video/mov" required>
+                            <label class="custom-file-label">Video</label>
+                        </div>
+                        <textarea class="form-control" rows="4" id="video-post-caption" name="videoPostCaption"
+                            placeholder="Caption..." required></textarea>
+                        <br>
+                        <button type="button" class="btn btn-dark" id="video-upload-btn">Upload</button>
+                    </form>
+                </div>
+                <hr>
+                <br>
+                <ul class="list-unstyled">
+                    <% if(user.posts.length >= 1) { 
+                         user.posts.forEach(function(post) { 
+                            if(post.postType === "text") { %>
+                                <hr>
+                    <li class="list-item card mt-3" data-id="<%= post.id %>">
+                        <img src="<%= user.avatar %>" class="rounded-circle" height="64" width="64" alt="profile image">
+                        <h3 class="font-weight-bold card-header"><%= user.username %></h3>
+                        <div class="card-body">
+                            <h6 class="font-weight-bold"><%= post.date %></h6>
+                            <p class="font-weight-bold"><%= post.content %></p>
+                            <footer class="card-footer">
+                                <button type="button" class="btn like-btn btn-link btn-primary" data-id="<%= post.id %>">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button type="button" class="comment-btn btn btn-link btn-primary" data-toggle="modal"
+                                    data-target="#<%= post.id %>">
+                                    <i class="fas fa-comment"></i>
+                                </button>
+                                <button type="button" class="delete-post-btn btn btn-link btn-primary" data-id="<%= post.id %>">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                                <p class="font-weight-bold"><%= post.likes.length %> Likes</p>
+                            </footer>
+                            <div class="modal fade" id="<%= post.id %>">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="font-weight-bold">Comments</h3>
+                                            <button type="close" class="close" data-dismiss="modal">
+                                                <span>&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <% if(post.comments.length <= 0) { %>
+                                                <h3 class="font-weight-bold">No Comments!</h3>
+                                                <form class="myForm">
+                                                    <textarea class="commentPost form-control" rows="3" placeholder="Post Comment..."></textarea>
+                                                    <br>
+                                                    <button data-id="<%= post.id %>" type="button" class="btn btn-danger btn-block commentBtn">
+                                                        Post
+                                                    </button>
+                                                </form>
+                                            <% } else { %>
+                                                <ul class="list-unstyled comments-list">
+                                                    <% post.comments.forEach(function(comment) { %>
+                                                        <li class="list-item media comment-item" data-id="<%= comment.id %>">
+                                                            <img class="rounded-circle mr-3" src="<%= comment.avatar %>" height="64" width="64">
+                                                            <div class="media-body">
+                                                                <h3 class="font-weight-bold"><%= comment.user %></h3>
+                                                                <p class="font-weight-bold"><%= comment.date %></p>
+                                                                <p class="font-weight-bold"><%= comment.content %></p>
+                                                            </div>
+                                                        </li>
+                                                        <hr>
+                                                        <br>
+                                                  <%  }); %>
+                                                </ul>
+                                                <br>
+                                                <form class="myForm">
+                                                    <textarea class="commentPost form-control" rows="3" placeholder="Post Comment..."></textarea>
+                                                    <br>
+                                                    <button data-id="<%= post.id %>" type="button" class="btn btn-danger btn-block commentBtn">
+                                                        Post
+                                                    </button>
+                                                </form>
+                                          <%  } %>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <% }
+                            else if(post.postType === "photo") { %>
+                                <hr>
+                    <li class="list-item card mt-3" data-id="<%= post.id %>">
+                        <h3 class="font-weight-bold card-header"><%= user.username %></h3>
+                        <img src="<%= post.photo %>" class="card-img-top">
+                        <div class="card-body">
+                            <h6 class="font-weight-bold"><%= post.date %></h6>
+                            <p class="font-weight-bold card-text"><%= post.caption %></p>
+                            <footer class="card-footer">
+                                <button type="button" class="like-btn btn btn-link btn-dark" data-id="<%= post.id %>">
+                                    <i class="fas fa-heart"></i>
+                                </button>
+                                <button type="button" class="comment-btn btn btn-link btn-dark" data-toggle="modal"
+                                    data-target="#<%= post.id %>">
+                                    <i class="fas fa-comment"></i>
+                                </button>
+                                <button type="button" class="delete-post-btn btn btn-link btn-dark" data-id="<%= post.id %>">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                                <p class="font-weight-bold"><%= post.likes.length %> Likes</p>
+                            </footer>
+                            <div class="modal fade" id="<%= post.id %>">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="font-weight-bold">Comments</h3>
+                                            <button class="close" data-dismiss="modal">
+                                                <span>&times;</span>
+                                            </button>
+                                        </div>
+                                        <% if(post.comments.length === 0) { %>
+                                            <h3>No Comments!</h3>
+                                            <br>
+                                            <form class="myForm">
+                                                <textarea class="commentPost form-control" row="3" placeholder="Post Comment..."></textarea>
+                                                <br>
+                                                <button type="button" class="btn btn-danger btn-block commentBtn" data-id="<%= post.id %>">
+                                                    Post
+                                                </button>
+                                            </form>
+                                       <% } else { %>
+                                        <ul class="list-unstyled">
+                                            <% post.comments.forEach(function(comment) { %>
+                                                <li class="list-item media">
+                                                    <img class="rounded-circle mr-3" height="64" width="64" src="<%= comment.avatar %>">
+                                                    <div class="media-body">
+                                                        <h3 class="font-weight-bold"><%= comment.user %></h3>
+                                                        <p class="font-weight-bold"><%= comment.date %></p>
+                                                        <p class="font-weight-bold"><%= comment.content %></p>
+                                                    </div>
+                                                </li>
+                                                <hr>
+                                                <br>
+                                           <% }); %>
+                                        </ul>
+                                        <br>
+                                        <form class="myForm">
+                                            <textarea class="commentPost form-control" placeholder="Post Comment..." rows="3"></textarea>
+                                            <br>
+                                            <button type="button" class="btn btn-danger btn-block commentBtn" data-id="<%= post.id %>">
+                                                Post
+                                            </button>
+                                        </form>
+                                       <% } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <% } 
+                             else if(post.postType === 'video') { %>
+                    <li class="card list-item mt-3" data-id="<%= post.id %>">
+                        <video class="video-js vjs-big-play-centered vjs-16-9 card-img-top" autopreload="false"
+                            data-setup='{"autoplay": false, "controls": true}'>
+                            <source src="<%= post.source %>" type="video/mp4">
+                        </video>
+                        <h3 class="card-header font-weight-bold"><%= user.username %></h3>
+                        <div class="card-body">
+                            <p class="card-text font-weight-bold"><%= post.caption %></p>
+                            <footer class="card-footer">
+                                <button type="button" data-id="<%= post.id %>" class="like-btn btn btn-link btn-dark" data-id="<%= post.id %>">
+                                    <i class="fa fa-heart"></i>
+                                </button>
+                                <button type="button" class="comment-btn btn btn-link btn-dark" data-toggle="modal" data-id="<%= post.id %>" data-target="#<%= post.id %>">
+                                    <i class="fa fa-comment"></i>
+                                </button>
+                                <button type="button" class="delete-post-btn btn btn-link btn-dark" data-id="<%= post.id %>">
+                                    <i class="fa fa-trash"></i>
+                                </button>
+                                <p class="font-weight-bold"><%= post.likes.length %> Likes</p>
+                            </footer>
+                            <div class="modal fade" id="<%= post.id %>">
+                                <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h3 class="font-weight-bold">Comments</h3>
+                                            <button class="close" data-dismiss="modal">
+                                                <span>&times;</span>
+                                            </button>
+                                        </div>
+                                        <% if(post.comments.length === 0) { %>
+                                            <h3 class="font-weight-bold">No Comments</h3>
+                                            <br>
+                                            <form class="myForm">
+                                                <textarea class="commentPost form-control" rows="3" placeholder="Post Comment..."></textarea>
+                                                <br>
+                                                <button type="button" class="commentBtn btn btn-block btn-danger" data-id="<%= post.id %>">
+                                                    Post
+                                                </button>
+                                            </form>
+                                       <% } else { %>
+                                        <ul class="list-unstyled">
+                                           <% post.comments.forEach(function(comment) { %>
+                                            <li class="media list-item">
+                                                <img class="rounded-circle mr-3" src="<%= comment.avatar %>" height="64" width="64">
+                                                <div class="media-body">
+                                                    <h3 class="font-weight-bold"><%= comment.user %></h3>
+                                                    <p class="font-weight-bold"><%= comment.content %></p>
+                                                </div>
+                                            </li>
+                                            <hr>
+                                            <br>
+                                        <% }); %>
+                                        </ul>
+                                        <br>
+                                        <form class="myForm">
+                                            <textarea class="commentPost form-control" rows="3" placeholder="Post Comment..."></textarea>
+                                            <br>
+                                            <button type="button" class="commentBtn btn btn-danger btn-block" data-id="<%= post.id %>">
+                                                Post
+                                            </button>
+                                        </form>
+                                    <%   } %>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%  }
+                         }); 
+                  }
+                  else { %>
+                        <p class="font-weight-bold">No Posts</p>
+                        <% } %>
+                </ul>
+            </div>
+            <div class="col-lg-3">
+                <h3 class="font-weight-bold">Events</h3>
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="card">
+                            <div class="card-header">Rudy Valdez Live</div>
+                            <div class="card-body">
+                                <div class="card-title">March 14th</div>
+                                <p class="font-weight-bold card-text">Rudy Valdez Will Be Performing At The Kingdom On
+                                    March 14th</p>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-link btn btn-dark">
+                                    Attend
+                                </a>
+                            </footer>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="card">
+                            <div class="card-header">Ciara Haskett Live</div>
+                            <div class="card-body">
+                                <div class="card-title">January 24th</div>
+                                <p class="card-text font-weight-bold">Ciara Haskett Is A Great Local Artist And Will Be
+                                    Performing Live At The Kingdom Venue On January 24th. Come Out And Have A Great
+                                    Time.
+                                </p>
+                            </div>
+                            <footer class="card-footer">
+                                <a href="#" class="card-link btn btn-dark">
+                                    Attend
+                                </a>
+                            </footer>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+    <script src="https://vjs.zencdn.net/7.6.6/video.js"></script>
+    <script type="text/javascript" src="/javascript/private-profile-page.js"></script>
+</body>
+
+</html>

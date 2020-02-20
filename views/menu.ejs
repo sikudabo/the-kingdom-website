@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>The Kingdom Menu</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
+            <a href="/" class="navbar-brand font-weight-bold">
+                <i class="fas fa-crown"></i>
+                THE KINGDOM
+            </a>
+            <button class="navbar-toggler" data-toggle="collapse" data-target="#navBar">
+                <i class="fa fa-bars"></i>
+            </button>
+            <div class="navbar-collapse collapse" id="navBar">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a href="/" class="nav-link">
+                            HOME
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            ABOUT US
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="/our-story" class="dropdown-item">
+                                Our Story
+                            </a>
+                            <a href="/work-here" class="dropdown-item">
+                                Work Here!
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/gallery" class="nav-link">
+                            GALLERY
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a href="/contact" class="nav-link dropdown-toggle" data-toggle="dropdown">
+                            CONTACT
+                        </a>
+                        <div class="dropdown-menu">
+                            <a href="/contact" class="dropdown-item">
+                                Contact Us
+                            </a>
+                            <a href="/work-here" class="dropdown-item">
+                                Work Here!
+                            </a>
+                            <a href="/plan-party" class="dropdown-item">
+                                Plan Your Party
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/sign-in" class="nav-link">
+                            SIGN IN
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/sign-up" class="nav-link btn btn-danger btn-sm">
+                            SIGN UP!
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link cart-toggler btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#checkout-modal">
+                            <i class="badge badge-primary cart-count">0</i>
+                            <i class="fas fa-shopping-cart"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="jumbotron text-center mt-5">
+            <h1 class="font-weight-bold">MENU</h1>
+            <p class="font-weight-bold">Take A Look At Our Delicious Menu. Order Food For Delivery Or Pickup Online!</p>
+            <p class="font-weight-bold">
+                We are committed to serving quality, cafe style food with a Big-City Flare. Pair a craft beer, local
+                wine, or soda with one of our tasty selections!
+            </p>
+        </div>
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="font-weight-bold"><i class="fas fa-beer"></i> DRAFTS</h2>
+            </div>
+        </div>
+        <br>
+        <div class="row" id="draft-row">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">M-43</h4>
+                    <img class="card-img-top"
+                        src="/site-images/m43-beer.jpg" height="200">
+                    <div class="card-body">
+                        <p>M-43 is an amazing craft beer that is sure to satisfy your thirst!</p>
+                        <p class="item-price">Price: $5.00</p>
+                        <input min="0" value="1" type="number" class="form-control amount" placeholder="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="m-43" data-name="M-43"
+                            data-id="M-43 Beer" data-price="5.00">
+                            Add To Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Space Dust</h4>
+                    <img class="card-img-top"
+                        src="/site-images/space-dust-beer.jpg"
+                        height="200">
+                    <div class="card-body">
+                        <p>Space Dust delivers an Authentic Flavor That You Will Enjoy.</p>
+                        <p class="item-price">Price: $5.00</p>
+                        <input min="0" step="1" value="1" type="number" class="form-control amount"
+                            placeholder="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="m-43" data-name="Space Dust"
+                            data-id="Space Dust Beer" data-price="5.00">
+                            Add To Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Elvis Juice</h4>
+                    <img class="card-img-top"
+                        src="/site-images/elvis-juice.jpg" height="200">
+                    <div class="card-body">
+                        <p>Elvis Juice Is A Unique Beer With The Sweetest Taste That Goes Down Smooth</p>
+                        <p class="item-price">Price: $5.00</p>
+                        <input min="0" value="1" type="number" class="form-control amount" placeholder="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="elvis-juice"
+                            data-name="Elvis Juice" data-id="Elvis Juice" data-price="5.00">
+                            Add To Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Bud Light</h4>
+                    <img class="card-img-top"
+                        src="/site-images/budlight-beer.jpg" height="200">
+                    <div class="card-body">
+                        <p>Bud Light Is The Smooth American Classic Everyone Loves.</p>
+                        <p class="item-price">Price: $5.00</p>
+                        <input min="0" value="1" type="number" class="form-control amount" placeholder="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="bud-light" data-name="Bud Light"
+                            data-id="Bud Light" data-price="5.00">
+                            Add To Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--End Of Top Row Of Bottles-->
+        <hr>
+        <br>
+        <br>
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="font-weight-bold"><i class="fas fa-wine-bottle"></i> BOTTLES</h2>
+            </div>
+        </div>
+        <div class="row" id="bottle-row">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Goose Island</h4>
+                    <img class="card-img-top"
+                        src="/site-images/goose-island-bottle.jpg"
+                        height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">A Fruity Beer With A Deliscious Taste That Always Goes Down Smooth
+                        </p>
+                        <p class="font-weight-bold">Price: $4.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="goose-island"
+                            data-name="Goose Island" data-id="Goose Island" data-price="4.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Stella</h4>
+                    <img class="card-img-top"
+                        src="/site-images/stella-bottle.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Stella Is A Classy Beer With A Pure Taste That Beer Lovers Enjoy</p>
+                        <p class="font-weight-bold">Price: $4.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="stella" data-name="Stella"
+                            data-id="Stella" data-price="4.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Budwiser</h4>
+                    <img class="card-img-top"
+                        src="/site-images/budwiser-bottle.png"
+                        height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Budwiser Is An American Favorite That Is Perfect For Any Outing</p>
+                        <p class="font-weight-bold">Price: $4.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="budwiser" data-name="Budwiser"
+                            data-id="Budwiser" data-price="4.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Ultra</h4>
+                    <img class="card-img-top" src="/site-images/ultra.jpeg"
+                        height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Ultra Is A Smooth And Iconic Low Carb Beer With A Smooth Taste</p>
+                        <p class="font-weight-bold">Price: $4.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="ultra" data-name="Ultra"
+                            data-id="Ultra" data-price="4.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2" id="bottle-row-2">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">O'DOUL'S</h4>
+                    <img class="card-img-top"
+                        src="/site-images/O'DOUL'S.jpeg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">O'DOUL'S Has The Unique Irish Taste That Experienced Beer Lovers
+                            Enjoy</p>
+                        <p class="font-weight-bold">Price: $4.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="odouls" data-name="O'DOUL'S"
+                            data-id="O'DOUL'S" data-price="4.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">All Day</h4>
+                    <img class="card-img-top" src="/site-images/allday.jpg"
+                        height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">All Day Is A Modern Beer That Is Great For Any Relaxing Night Out
+                        </p>
+                        <p class="font-weight-bold">Price: $4.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="allday" data-name="All Day"
+                            data-id="All Day" data-price="4.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Peanut Butter</h4>
+                    <img class="card-img-top"
+                        src="/site-images/peanutbutter.png" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Peanut Butter Is A Unique Mexican Beer With A Fresh And Wild Taste
+                        </p>
+                        <p class="font-weight-bold">Price: $4.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="peanutbutter"
+                            data-name="Peanut Butter" data-id="Peanut Butter" data-price="4.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <br>
+        <br>
+        <!--End Of The Beer Bottles Row-->
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="font-weight-bold"><i class="fas fa-wine-bottle"></i> WINE</h2>
+            </div>
+        </div>
+        <div class="row" id="wine-row">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Pink Diamond</h4>
+                    <img class="card-img-top"
+                        src="/site-images/pink-diamond.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Pink Diamond Is A Classy Wine With A Warm And Sweet Taste
+                        </p>
+                        <p class="font-weight-bold">Price: $6.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="pink-diamond"
+                            data-name="Pink Diamond" data-id="Pink Diamond" data-price="6.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Moscato</h4>
+                    <img class="card-img-top"
+                        src="/site-images/moscato.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Moscato Is A Name That Every Wine Lover Knows About
+                        </p>
+                        <p class="font-weight-bold">Price: $6.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="moscato" data-name="Moscato"
+                            data-id="Moscato" data-price="6.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Plonque</h4>
+                    <img class="card-img-top"
+                        src="/site-images/plonque.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Plonque Is The Timeless Wine With The Soothing Taste
+                        </p>
+                        <p class="font-weight-bold">Price: $6.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="plonque" data-name="Plonque"
+                            data-id="Plonque" data-price="6.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Chardonnay</h4>
+                    <img class="card-img-top"
+                        src="/site-images/chardonney.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Chardonnay Is A High-Quality Wine With A Timeless Flavor
+                        </p>
+                        <p class="font-weight-bold">Price: $6.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="chardonnay" data-name="Chardonnay"
+                            data-id="Chardonnay" data-price="6.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2" id="wine-row-2">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Cabernet</h4>
+                    <img class="card-img-top"
+                        src="/site-images/cabernet.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">A Classy French Wine With An Authentic French Taste
+                        </p>
+                        <p class="font-weight-bold">Price: $6.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="cabernet" data-name="Cabernet"
+                            data-id="Cabernet" data-price="6.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <br>
+        <br>
+        <!--End Of Wine Row-->
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="font-weight-bold"><i class="fas fa-glass-whiskey"></i> OTHER DRINKS</h2>
+            </div>
+        </div>
+        <div class="row" id="other-drinks">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Sprite</h4>
+                    <img class="card-img-top"
+                        src="/site-images/sprite.jpeg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Price: $2.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="sprite" data-name="Sprite"
+                            data-id="Sprite" data-price="2.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Root Beer</h4>
+                    <img class="card-img-top"
+                        src="/site-images/root-beer.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Price: $2.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <a href="#other-drinks" class="btn btn-danger add-item-btn" id="root-beer" data-name="Root Beer"
+                            data-id="Root Beer" data-price="2.00">
+                            ADD TO CART
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Diet Coke</h4>
+                    <img class="card-img-top"
+                        src="/site-images/diet-coke.png" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Price: $2.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="diet-coke" data-name="Diet Coke"
+                            data-id="Diet Coke" data-price="2.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Milk</h4>
+                    <img class="card-img-top" src="/site-images/milk.jpg"
+                        height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Price: $2.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="milk" data-name="Milk"
+                            data-id="Milk" data-price="2.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2" id="other-drinks-2">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Apple Juice</h4>
+                    <img class="card-img-top"
+                        src="/site-images/apple-juice.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Price: $2.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="apple-juice"
+                            data-name="Apple Juice" data-id="Apple Juice" data-price="2.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <br>
+        <br>
+        <!--End Of The Other Drinks Row-->
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="font-weight-bold"><i class="fas fa-hamburger"></i> SANDWICHES</h2>
+            </div>
+        </div>
+        <div class="row" id="sandwich-row">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Reuben</h4>
+                    <img class="card-img-top"
+                        src="/site-images/reuben-sandwich.jpg"
+                        height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Price: $6.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="reuben" data-name="Reuben"
+                            data-id="Reuben" data-price="6.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Hot Pastrami</h4>
+                    <img class="card-img-top"
+                        src="/site-images/hot-pastrami.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Price: $5.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="hot-pastrami"
+                            data-name="Hot Pastrami" data-id="Hot Pastrami" data-price="5.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Turkey Swiss</h4>
+                    <img class="card-img-top"
+                        src="/site-images/turkey-swiss.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Price: $5.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="turkey-swiss"
+                            data-name="Turkey Swiss" data-id="Turkey Swiss" data-price="5.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Grilled Cheese</h4>
+                    <img class="card-img-top"
+                        src="/site-images/grilled-cheese.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Price: $4.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="grilled-cheese"
+                            data-name="Grilled Cheese" data-id="Grilled Cheese" data-price="4.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-2" id="sandwich-row-2">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Beef Hotdog</h4>
+                    <img class="card-img-top"
+                        src="/site-images/beef-hotdog.jpg" height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Price: $4.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="beef-hotdog"
+                            data-name="Beef Hotdog" data-id="Beef Hotdog" data-price="4.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <br>
+        <br>
+        <!--End Of Sandwich Row-->
+        <div class="row text-center">
+            <div class="col">
+                <h2 class="font-weight-bold">SOUP OF THE DAY</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-lg-3">
+                <div class="card">
+                    <h4 class="font-weight-bold card-header item-name">Chicken & Rice Veggie</h4>
+                    <img class="card-img-top"
+                        src="/site-images/chicken-and-rice-soup.jpg"
+                        height="200">
+                    <div class="card-body">
+                        <p class="font-weight-bold">Price: $4.00</p>
+                        <input type="number" min="0" value="1" class="form-control amount" id="quantity"
+                            name="quantity">
+                        <button type="button" class="btn btn-danger add-item-btn" id="chicken-and-rice-soup"
+                            data-name="Chicken & Rice Soup" data-id="Chicken & Rice Soup" data-price="4.00">
+                            ADD TO CART
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="checkout-modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            Checkout Items
+                        </h4>
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modal-body">
+                        <div class="row">
+                            <div class="col-xs-3">
+                                Item
+                            </div>
+                            <div class="col-xs-3 ml-3">
+                                Price
+                            </div>
+                            <div class="col-xs-3 ml-3">
+                                Quantity
+                            </div>
+                            <div class="col-xs-3 ml-3">
+                                Total
+                            </div>
+                        </div>
+                        <ul class="list-unstyled checkout-list">
+                        </ul>
+                        <hr>
+                        <div class="row check-total-row">
+                            <div class="col-xs-3">
+                                Total:
+                            </div>
+                            <div class="col-xs-7 ml-2 total-amount-col">
+                                <p class="checkout-total" id="checkout-total" data-tot="0.00">0.00</p>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger btn-block checkout-btn" data-toggle="modal"
+                            data-target="#userInfoModal">Order</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="userInfoModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">Customer Information</h4>
+                        <button class="close" data-dismiss="modal">
+                            <span>&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="user-info-form">
+                            <div class="form-group">
+                                <label for="first-name">First Name</label>
+                                <input type="text" class="form-control" id="user-first-name" placeholder="First Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="last-name">Last Name</label>
+                                <input type="text" class="form-control" id="user-last-name" placeholder="Last Name">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone-number">Phone Number</label>
+                                <input type="tel" class="form-control" id="user-phone-number"
+                                    placeholder="Phone Number">
+                            </div>
+                            <div class="form-group">
+                                <label for="user-address">Address</label>
+                                <input type="address" class="form-control" id="user-address" placeholder="Address">
+                            </div>
+                            <div class="form-group">
+                                <label for="user-city">City</label>
+                                <input type="text" class="form-control" id="user-city" placeholder="City">
+                            </div>
+                            <div class="form-group">
+                                <label for="user-state">State</label>
+                                <input type="text" class="form-control" id="user-state" placeholder="State">
+                            </div>
+                            <div classs="form-group">
+                                <textarea class="form-control" id="user-notes" rows="3"
+                                    placeholder="Additional Notes..."></textarea>
+                            </div>
+                            <button type="button" class="btn btn-danger btn-block" id="send-order-btn">
+                                Send Order!
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+    <script type="text/javascript" src="/javascript/menu.js"></script>
+</body>

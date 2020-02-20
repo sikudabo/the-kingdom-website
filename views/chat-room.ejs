@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <title>The Kingdon Venue Chat Room</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+    </head>
+    <body data-id="<%= user.username %>">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+            <a href="/private-profile-page" class="navbar-brand text-white font-weight-bold">
+                <img src="<%= user.avatar %>" class="rounded-circle" height="64" width="64">
+                <%= user.username %>
+            </a>
+            <h2 class="font-weight-bold text-white">The Kingdom Chat</h2>
+        </nav>
+        <div class="container-fluid" style="margin-top: 7rem;">
+            <div class="row">
+                <div class="col-md-6 offset-md-3 col-sm-12 offset-sm-0">
+                    <ul class="list-unstyled messages-list" id="msgList">
+
+                    </ul>
+                </div>
+            </div>
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark fixed-bottom" style="margin-top: 7rem;">
+                <div class="input-group">
+                    <input type="text" class="form-control" id="msgInput" placeholder="Type Message...">
+                    <div class="input-group-append">
+                        <button type="button" class="btn btn-danger" id="submitBtn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+        <script type="text/javascript" src="/javascript/chat-room.js"></script>
+    </body>
+</html>

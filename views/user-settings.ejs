@@ -1,0 +1,127 @@
+<!DOCTYPE hmtl>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no">
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+        <meta name="Author" content="Simeon Ikudabo At The Kingdom">
+        <title>The Kingdom User Settings</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/css/mdb.min.css" rel="stylesheet">-->
+        <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
+    </head>
+    <!--.list-link links have their real href attributes set in the external JavaScript file-->
+    <body data-id="<%= user.username %>">
+        <div class="container-fluid" style="padding: 0;">
+            <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+                <a href="/private-profile-page" class="navbar-brand">
+                    <img class="rounded-circle" height="64" width="64" src="<%= user.avatar %>">
+                    <%= user.username %>
+                </a>
+            </nav>
+            <div class="jumbotron text-center">
+                <h3 class="font-weight-bold">
+                    Settings Page
+                </h3>
+                <p class="font-weight-bold">
+                    Select A Link On The Page To Update One Of Your Settings!
+                </p>
+            </div>
+            <div class="row text-center">
+                <div class="col-sm-6 offset-sm-3">
+                    <ul class="list-unstyled">
+                        <li class="list-item">
+                            <a href="#" class="list-link firstName" data-id="firstName"> 
+                                First Name
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item">
+                            <a href="#" class="list-link lastName" data-id="lastName">
+                                Last Name
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item">
+                            <a href="#" class="list-link username" data-id="username">
+                                Username
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item">
+                            <a href="#" class="list-link password" data-id="password">
+                                Password
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item">
+                            <a href="#" class="list-link birthday" data-id="birthday">
+                                Birthday
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item">
+                            <a href="#" class="list-link gender" data-id="gender">
+                                Gender
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item">
+                            <a href="#" class="list-link email" data-id="email">
+                                Email
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item">
+                            <a href="#" class="list-link phone" data-id="phone">
+                                Phone
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item">
+                            <a href="#" class="list-link city" data-id="city">
+                                City
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item">
+                            <a href="#" class="list-link state" data-id="state">
+                                State
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item">
+                            <a href="#" class="list-link zip" data-id="zip">
+                                Zip
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item">
+                            <a href="#" class="list-link bio" data-id="bio">
+                                Bio
+                            </a>
+                        </li>
+                        <br>
+                        <li class="list-item avatar">
+                            <a href="#" class="list-link" data-id="avatar">
+                                Avatar
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+        <script type="text/javascript"
+            src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.10.1/js/mdb.min.js"></script>
+        <script type="text/javascript" src="/javascript/user-settings.js"></script>
+    </body>
+</html>

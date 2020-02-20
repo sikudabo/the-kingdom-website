@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="author" content="Simeon Ikudabo">
+        <title>The Kingdom Home Page</title>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body class="bg-white">
+        <div class="container">
+            <div class="jumbotron text-center font-weight-bold">
+                <h3>Contact Us</h3>
+                <p>We Are Extremely Easy To Contact And Reach. You Can Call Us, Email Us, Contact Us On Social Media Or Send Us A Message Here!
+                    Our Customers Mean Everything To Us, So We Appreciate Your Feedback.
+                </p>
+            </div>
+            <div class="row">
+                <div class="col-md-3">
+                    <h2 class="font-weight-bold">Find Us</h2>
+                    <br>
+                    <br>
+                    <h4 class="font-weight-bold">Address:</h4>
+                    <p class="font-weight-bold">111 North Boots Street</p>
+                    <p class="font-weight-bold">Marion, Indiana 46952</p>
+                    <br>
+                    <br>
+                    <h4 class="font-weight-bold">Email</h4>
+                    <p class="font-weight-bold">thekingdomvenue@gmail.com</p>
+                    <br>
+                    <br>
+                    <h4 class="font-weight-bold">Phone</h4>
+                    <p class="font-weight-bold">765-660-3478</p>
+                </div>
+                <div class="col-md-9">
+                    <h2 class="font-weight-bold">Contact Form</h2>
+                    <form id="contact-form" method="POST" action="/handle-feedback">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" class="form-control" name="firstName" placeholder="First Name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="lastName">Last Name</label>
+                                <input type="text" class="form-control" name="lastName" placeholder="Last Name" required>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <input type="email" class="form-control" name="email" placeholder="Email" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="phone">Phone Number</label>
+                                    <input type="tel" class="form-control" name="phone" placeholder="Phone Number" required>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <textarea class="form-control" rows="5" name="feedback" placeholder="Give Us Feedback..." required></textarea>
+                        <br>
+                        <button type="submit" class="btn btn-dark btn-block">
+                            Submit
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="/javascript/contact.js"></script>
+    </body>
+</html>
