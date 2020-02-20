@@ -15,7 +15,7 @@ const session = require('express-session');
 const multer = require('multer');
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "c:/users/sikud/downloads/the-kingdom/temp-files");
+        cb(null, "path");
     },
     filename: function (req, file, cb) {
         cb(null, Date.now() + file.fieldname + path.extname(file.originalname));
@@ -36,21 +36,21 @@ const transporter = nodemailer.createTransport({
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
-app.set('port', 443);
+app.set('port', port);
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(logging('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(session({secret: 'jndajgnoadgngo39294929942njgenoia4949', resave: true, rolling: true, cookie: { maxAge: 36000000 }}));
+app.use(session({secret: 'randomsecret', resave: true, rolling: true, cookie: { maxAge: 36000000 }}));
 app.use(cookieParser());
 
 const options = {
-    key: fs.readFileSync('c:/users/sikud/downloads/the-kingdom/certs/key.pem'),
-    cert: fs.readFileSync('c:/users/sikud/downloads/the-kingdom/certs/cert.pem'),
+    key: fs.readFileSync('cert.pem'),
+    cert: fs.readFileSync('key.pem'),
 };
 
-var users = fs.readFileSync('c:/users/sikud/downloads/the-kingdom/users.json');
+var users = fs.readFileSync('users.json');
 users = JSON.parse(users);
 
 app.get('/', (req, res, next) => {
@@ -84,8 +84,8 @@ app.post('/party-data', (req, res, next) => {
     let phone = req.body.phone;
     let description = req.body.description;
     let mailOptions = {
-        from: 'lakingsdodgers@gmail.com',
-        to: 'sikudabo@iu.edu',
+        from: 'sender@gmail.com',
+        to: 'target@gmail.com',
         subject: 'The Kingdom Party Request!',
         text: `First Name: ${firstName} \nLast Name: ${lastName} \nEmail: ${email} \nPhone ${phone} \nDescription: ${description}`
     };
@@ -258,7 +258,7 @@ app.post('/add-new-user', upload.single('newUserAvatar'), (req, res, next) => {
             photos: [],
             videos: []
         });
-        fs.writeFileSync('c:/users/sikud/downloads/the-kingdom/users.json', JSON.stringify(users), (err) => {
+        fs.writeFileSync('users.json', JSON.stringify(users), (err) => {
             if (err) {
                 console.log(err);
             }
@@ -266,7 +266,7 @@ app.post('/add-new-user', upload.single('newUserAvatar'), (req, res, next) => {
                 console.log('Database Successfully Updated');
             }
         });
-        users = fs.readFileSync('c:/users/sikud/downloads/the-kingdom/users.json');
+        users = fs.readFileSync('users.json');
         users = JSON.parse(users);
         req.session.auth = true;
         req.session.username = username;
@@ -941,8 +941,8 @@ app.post('/handle-application', upload.single('resume'), (req, res, next) => {
     let phone = req.body.phone;
     let inFile = req.file.path;
     let mailOptions = {
-        from: 'lakingsdodgers@gmail.com',
-        to: 'sikudabo@iu.edu',
+        from: 'sender@gmail.com',
+        to: 'target@gmail.com',
         subject: 'New Application For The Kingdom Venue!',
         text: `First Name: ${firstName} \nLast Name: ${lastName} \nCity: ${city} \nState: ${state} \nZip: ${zip} \nEmail: ${email} \nPhone: ${phone}`,
         attachments: [{
@@ -970,8 +970,8 @@ app.post('/handle-feedback', (req, res, next) => {
     let phone = req.body.phone;
     let feedback = req.body.feedback;
     let mailOptions = {
-        from: 'lakingsdodgers@gmail.com',
-        to: 'sikudabo@iu.edu, aikudabo2@gmail.com',
+        from: 'sender@gmail.com',
+        to: 'target@gmail.com, anotherTarget@gmail.com',
         subject: 'The Kingdom User Feedback',
         text: `First Name: ${firstName} \nLast Name: ${lastName} \nEmail: ${email} \nPhone: ${phone} \n \nFeedback: ${feedback}`
     };
@@ -988,7 +988,7 @@ app.post('/handle-feedback', (req, res, next) => {
     });
 });
 
-const server = https.createServer(options, app).listen(app.get('port'), '192.168.0.9', () => {
+const server = https.createServer(options, app).listen(app.get('port'), 'IP Address', () => {
     console.log(`Listening on port ${app.get('port')}`);
 });
 
