@@ -345,8 +345,8 @@ app.post('/handle-checkout', (req, res, next) => {
     console.log(JSON.stringify(orders));
     console.log(JSON.stringify(userInfo));
     let mailOptions = {
-        from: 'lakingsdodgers@gmail.com',
-        to: 'sikudabo@iu.edu',
+        from: 'sender@gmail.com',
+        to: 'target@gmail.com',
         subject: 'new user order',
         text: 'The order is: ' + JSON.stringify(orders) + '\nThe total price is:' + totalPrice + '\nInfo ' + JSON.stringify(userInfo)
     }
