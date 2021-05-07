@@ -21,6 +21,6 @@
     "pug": "^2.0.4",
     "socket.io": "^2.3.0",
     "stylus": "^0.54.7",
-    "underscore": "^1.9.2"
+    "underscore": "^1.12.1"
   }
 }
